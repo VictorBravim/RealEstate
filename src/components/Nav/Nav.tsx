@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./Nav.css";
+import '@/styles/Global.css';
 import logo from '@/assets/logo.png';
 
 export default function Nav() {
@@ -44,8 +44,8 @@ export default function Nav() {
                 <div className="container">
                     <div className="menu-bg-wrap">
                         <div className="site-navigation">
-                            <a href="index.html" className="logo m-0 float-start">
-                                <Image src={logo} alt="Logo" width={50} height={40} />Casa Nova
+                            <a href="index.html" className="logo m-1 float-start">
+                                <Image src={logo} alt="Logo" width={50} height={40} className='mr-6' />Casa Nova
                             </a>
 
                             <ul className="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">

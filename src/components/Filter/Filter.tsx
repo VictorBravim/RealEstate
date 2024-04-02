@@ -1,6 +1,6 @@
 // Filter.tsx
 import "bootstrap/dist/css/bootstrap.min.css";
-import './Filter.css'
+import '@/styles/Globall.css'
 
 export default function Filter() {
     return (
@@ -42,7 +42,8 @@ export default function Filter() {
                   </select>
                 </div>
               </div>
-              <div className="col-md-2">
+              <div className="col-md-3">
+                <label htmlFor="select-city">Buscar</label>
                 <button type="submit" className="btn btn-success text-white btn-block rounded-0">Buscar</button>
               </div>
             </div>

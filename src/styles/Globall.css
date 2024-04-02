@@ -112,7 +112,8 @@ a:hover {
 }
 
 .btn.btn-primary {
-    color: #fff;
+    color: black;
+    font-weight: 600;
 }
 
 .btn.btn-outline-primary:hover {
@@ -145,6 +146,8 @@ a:hover {
 
 .form-control {
     height: 47px;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .form-control-sm {
@@ -285,7 +288,7 @@ a:hover {
 
 .site-footer {
     padding: 4em 0;
-    background: #132D46;
+    background: #FEE119;
 }
 
 .site-footer p {
@@ -636,7 +639,7 @@ a:hover {
 }
 
 .form-searche {
-    background: #132D46;
+    background: #FEE119;
     position: relative;
     z-index: 1;
     padding: 3rem 3rem;
@@ -649,7 +652,8 @@ a:hover {
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: .1em;
-    color: rgba(255, 255, 255, 0.3);
+    color: black;
+    font-weight: 400;
 }
 
 .form-searche .form-control {
@@ -982,7 +986,18 @@ a:hover {
     opacity: .5;
 }
 
+.text-primary {
+    --bs-text-opacity: 1;
+    color: black !important;
+    font-weight: 400;
+}
 
+.bg-primary {
+    --bs-bg-opacity: 1;
+    background-color: #FEE119 !important;
+    color: #000 !important;
+    font-weight: 600;
+}
 
 .nav-pills .nav-item .btn {
     color: var(--dark);
@@ -990,7 +1005,9 @@ a:hover {
 
 .nav-pills .nav-item .btn:hover,
 .nav-pills .nav-item .btn.active {
-    color: #FFFFFF;
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .property-item {
