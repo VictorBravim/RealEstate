@@ -1,6 +1,6 @@
 // CasaFilter.tsx
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import "bootstrap/dist/css/bootstrap.min.css";
 import casa from "@/assets/casa.webp"
@@ -16,6 +16,8 @@ interface Casa {
     banheiro: number;
     quarto: number;
     garagem: number;
+    categoria: string; // Categoria da propriedade (casa, apartamento, comercial, etc.)
+    transacao: string; // Tipo de transação (aluguel ou compra)
 }
 
 const casas: Casa[] = [
@@ -29,6 +31,8 @@ const casas: Casa[] = [
         banheiro: 2,
         quarto: 3,
         garagem: 2,
+        categoria: 'Apartamento',
+        transacao: 'Aluguel',
     },
     {
         id: 2,
@@ -40,6 +44,8 @@ const casas: Casa[] = [
         banheiro: 3,
         quarto: 4,
         garagem: 3,
+        categoria: 'Comercial',
+        transacao: 'Compra',
     },
     {
         id: 3,
@@ -51,10 +57,16 @@ const casas: Casa[] = [
         banheiro: 1,
         quarto: 2,
         garagem: 1,
+        categoria: 'Casa',
+        transacao: 'Aluguel',
     },
 ];
 
-export default function CasaFilter() {
+interface Props {
+    searchQuery: string;
+}
+
+export default function CasaFilter({ searchQuery }: Props) {
     const [filteredCasas, setFilteredCasas] = useState<Casa[]>(casas);
     const [filtroBanheiro, setFiltroBanheiro] = useState<number | null>(null);
     const [filtroQuarto, setFiltroQuarto] = useState<number | null>(null);
@@ -62,9 +74,22 @@ export default function CasaFilter() {
     const [faixaPrecoMin, setFaixaPrecoMin] = useState<number | null>(null);
     const [faixaPrecoMax, setFaixaPrecoMax] = useState<number | null>(null);
     const [filtroPesquisa, setFiltroPesquisa] = useState<string>('');
+    const [filtroCategoria, setFiltroCategoria] = useState<string>('');
+    const [filtroTransacao, setFiltroTransacao] = useState<string>('');
+
+    useEffect(() => {
+        applyFilters();
+    }, [searchQuery, filtroCategoria, filtroTransacao]);
 
     const applyFilters = () => {
         let filtered = [...casas];
+        if (searchQuery) {
+            filtered = filtered.filter(casa =>
+                casa.localizacao.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                casa.cep.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                casa.id.toString().toLowerCase().includes(searchQuery.toLowerCase())
+            );
+        }
         if (filtroBanheiro !== null) {
             filtered = filtered.filter(casa => casa.banheiro === filtroBanheiro);
         }
@@ -83,6 +108,12 @@ export default function CasaFilter() {
         if (filtroPesquisa !== '') {
             filtered = filtered.filter(casa => casa.localizacao.includes(filtroPesquisa) || casa.cep.includes(filtroPesquisa) || casa.id.toString().includes(filtroPesquisa));
         }
+        if (filtroCategoria) {
+            filtered = filtered.filter(casa => casa.categoria === filtroCategoria);
+        }
+        if (filtroTransacao) {
+            filtered = filtered.filter(casa => casa.transacao === filtroTransacao);
+        }
         setFilteredCasas(filtered);
     };
 
@@ -93,6 +124,8 @@ export default function CasaFilter() {
         setFaixaPrecoMin(null);
         setFaixaPrecoMax(null);
         setFiltroPesquisa('');
+        setFiltroCategoria('');
+        setFiltroTransacao('');
         setFilteredCasas(casas);
     };
 
@@ -103,6 +136,25 @@ export default function CasaFilter() {
                     <div className="col-lg-3">
                         <div className="text-start mb-5">
                             <h5>Filtrar por:</h5>
+                            {/* Dropdown para Categoria */}
+                            <div className="input-group mb-3">
+                                <label htmlFor="category-select" className="input-group-text">Categoria</label>
+                                <select id="category-select" className="form-select" value={filtroCategoria} onChange={e => setFiltroCategoria(e.target.value)}>
+                                    <option value="">Todas</option>
+                                    <option value="Casa">Casa</option>
+                                    <option value="Apartamento">Apartamento</option>
+                                    <option value="Comercial">Comercial</option>
+                                </select>
+                            </div>
+                            {/* Dropdown para Transação */}
+                            <div className="input-group mb-3">
+                                <label htmlFor="transaction-select" className="input-group-text">Transação</label>
+                                <select id="transaction-select" className="form-select" value={filtroTransacao} onChange={e => setFiltroTransacao(e.target.value)}>
+                                    <option value="">Todas</option>
+                                    <option value="Aluguel">Aluguel</option>
+                                    <option value="Compra">Compra</option>
+                                </select>
+                            </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text">Banheiros</span>
                                 <button className="btn btn-outline-primary" onClick={() => setFiltroBanheiro((filtroBanheiro || 0) + 1)}>+</button>
