@@ -2,6 +2,7 @@
 'use client'
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '@/styles/Global.css';
 import logo from '@/assets/logo.png';
@@ -31,11 +32,11 @@ export default function Nav() {
                     </div>
                 </div>
                 <div className="site-mobile-menu-body">
-                <ul className="site-nav-wrap">
-                        <li className="active"><a href="index.html">Home</a></li>
-                        <li><a href="/propriedade.html">Propriedades</a></li>
-                        <li><a href="/serviços.html">Serviços</a></li>
-                        <li><a href="/contato.html">Contato</a></li>
+                    <ul className="site-nav-wrap">
+                        <li className="active"><Link href="/">Home</Link></li>
+                        <li><Link href="/Propriedade">Propriedades</Link></li>
+                        <li><Link href="/Servicos">Serviços</Link></li>
+                        <li><Link href="/Contato">Contato</Link></li>
                     </ul>
                 </div>
             </div>
@@ -49,14 +50,14 @@ export default function Nav() {
                             </a>
 
                             <ul className="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-                                <li className="active"><a href="index.html">Home</a></li>
-                                <li><a href="/propriedade.html">Propriedades</a></li>
-                                <li><a href="/serviços.html">Serviços</a></li>
-                                <li><a href="/contato.html">Contato</a></li>
+                                <li className="active"><Link href="/">Home</Link></li>
+                                <li><Link href="/Propriedade">Propriedades</Link></li>
+                                <li><Link href="/Servicos">Serviços</Link></li>
+                                <li><Link href="/Contato">Contato</Link></li>
                             </ul>
 
-                            <a href="#" className="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none">
-                                <span onClick={handleMenuToggle}></span>
+                            <a href="#" className="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none" onClick={handleMenuToggle}>
+                                <span></span>
                             </a>
                         </div>
                     </div>
