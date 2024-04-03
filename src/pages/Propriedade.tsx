@@ -1,5 +1,5 @@
 // Propriedade.tsx
-import Nav from '@/components/Nav/Nav' 
+import Nav from '@/components/Nav/Nav'
 import HeroM from '@/components/Hero/HeroM'
 import CasaFilter from '@/components/New/CasaFilter';
 import Footer from '@/components/Footer/Footer'
@@ -9,9 +9,11 @@ import { useEffect, useState } from 'react';
 export default function Propriedade() {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
+  const [filtroCategoria, setFiltroCategoria] = useState('');
+  const [filtroTransacao, setFiltroTransacao] = useState('');
 
   useEffect(() => {
-    const { search } = router.query;
+    const { search, Categoria, Transacao } = router.query;
     if (search) {
       if (Array.isArray(search)) {
         setSearchQuery(search[0]);
@@ -19,13 +21,19 @@ export default function Propriedade() {
         setSearchQuery(search);
       }
     }
+    if (Categoria) {
+      setFiltroCategoria(Array.isArray(Categoria) ? Categoria[0] : Categoria);
+    }
+    if (Transacao) {
+      setFiltroTransacao(Array.isArray(Transacao) ? Transacao[0] : Transacao);
+    }
   }, [router.query]);
 
   return (
     <div>
-      <Nav /> 
+      <Nav />
       <HeroM />
-      <CasaFilter searchQuery={searchQuery} />
+      <CasaFilter searchQuery={searchQuery} filtroCategoria={filtroCategoria} filtroTransacao={filtroTransacao} />
       <Footer />
     </div>
   );
