@@ -2,8 +2,9 @@
 'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.min.css";
-import casa from "@/assets/casa.png"
+import casa from "@/assets/casa.webp"
 import "@/styles/Globall.css"
 
 interface Casa {
@@ -45,11 +46,44 @@ const casas: Casa[] = [
         id: 3,
         nome: 'Casa 3',
         preco: '$150,000',
-        localizacao: 'Rua B, Bairro X',
+        localizacao: 'Rua C, Bairro X',
         imgSrc: casa.src,
         banheiro: 1,
         quarto: 2,
         garagem: 1,
+        tipo: 'Venda',
+    },
+    {
+        id: 4,
+        nome: 'Casa 4',
+        preco: '$350,000',
+        localizacao: 'Rua D, Bairro W',
+        imgSrc: casa.src,
+        banheiro: 3,
+        quarto: 3,
+        garagem: 2,
+        tipo: 'Alugar',
+    },
+    {
+        id: 5,
+        nome: 'Casa 5',
+        preco: '$100,000',
+        localizacao: 'Rua E, Bairro V',
+        imgSrc: casa.src,
+        banheiro: 1,
+        quarto: 1,
+        garagem: 0,
+        tipo: 'Alugar',
+    },
+    {
+        id: 6,
+        nome: 'Casa 6',
+        preco: '$450,000',
+        localizacao: 'Rua F, Bairro U',
+        imgSrc: casa.src,
+        banheiro: 5,
+        quarto: 4,
+        garagem: 3,
         tipo: 'Venda',
     },
 ];
@@ -59,7 +93,7 @@ export default function New() {
     const [activeFilter, setActiveFilter] = useState('');
 
     const filterCasas = (tipo: string) => {
-        if (tipo === activeFilter) return; // Evita refiltrar se já estiver selecionado
+        if (tipo === activeFilter) return;
         setActiveFilter(tipo);
         if (tipo === 'Venda' || tipo === 'Alugar') {
             const filtered = casas.filter(casa => casa.tipo === tipo);
@@ -76,8 +110,6 @@ export default function New() {
                     <div className="col-lg-6">
                         <div className="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
                             <h1 className="mb-3">Lista de Propriedades</h1>
-                            <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum
-                                sit eirmod sit diam justo sed rebum.</p>
                         </div>
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
@@ -125,7 +157,9 @@ export default function New() {
                                 </div>
                             ))}
                             <div className="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                                <a className="btn btn-primary py-3 px-5" href="">Procure mais propriedades</a>
+                                <Link href="/Propriedade">
+                                    <button className="btn btn-primary py-3 px-5">Procure mais propriedades</button>
+                                </Link>
                             </div>
                         </div>
                     </div>

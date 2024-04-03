@@ -3915,6 +3915,8 @@ fieldset:disabled .btn {
 .btn-outline-primary {
     color: #FEE119;
     border-color: #FEE119;
+    --bs-btn-active-color: black !important;
+    --bs-btn-active-bg: white !important;
 }
 
 .btn-outline-primary:hover {

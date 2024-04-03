@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '@/styles/Global.css';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo.webp';
 
 export default function Nav() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -45,7 +45,7 @@ export default function Nav() {
                 <div className="container">
                     <div className="menu-bg-wrap">
                         <div className="site-navigation">
-                            <a href="index.html" className="logo m-1 float-start">
+                            <a href="/" className="logo m-1 float-start">
                                 <Image src={logo} alt="Logo" width={50} height={40} className='mr-6' />Casa Nova
                             </a>
 
