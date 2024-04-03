@@ -70,16 +70,28 @@ export default function CasaFilter() {
         }
     };
 
+    const filterByAttribute = (attribute: keyof Casa, value: number) => {
+        const filtered = casas.filter(casa => casa[attribute] === value);
+        setFilteredCasas(filtered);
+    };
+
     return (
         <div className="container-xxl py-5">
             <div className="container">
                 <div className="row g-0 gx-5 align-items-end">
-                    <div className="col-lg-6">
+                    <div className="col-lg-3">
                         <div className="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
-                            <h1 className="mb-3">Lista de Propriedades</h1>
+                            <div>
+                                <h5>Filtrar por:</h5>
+                                <div>
+                                    <button className={`btn btn-outline-primary mb-2 ${activeFilter === 'banheiro' ? 'active' : ''}`} onClick={() => filterByAttribute('banheiro', 2)}>2 Banheiros</button>
+                                    <button className={`btn btn-outline-primary mb-2 ${activeFilter === 'quarto' ? 'active' : ''}`} onClick={() => filterByAttribute('quarto', 3)}>3 Quartos</button>
+                                    <button className={`btn btn-outline-primary ${activeFilter === 'garagem' ? 'active' : ''}`} onClick={() => filterByAttribute('garagem', 2)}>2 Garagens</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                    <div className="col-lg-9 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
                         <ul className="nav nav-pills d-inline-flex justify-content-end mb-5">
                             <li className="nav-item me-2">
                                 <button id="btn-all" className={`btn btn-outline-primary ${activeFilter === '' ? 'active' : ''}`} onClick={() => filterCasas('')}>Propriedades</button>
