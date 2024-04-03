@@ -4,7 +4,7 @@ import HeroM from '@/components/Hero/HeroM'
 import CasaFilter from '@/components/New/CasaFilter';
 import Footer from '@/components/Footer/Footer'
 
-export default function Home() {
+export default function Propriedade() {
   return (
     <div>
       <Nav /> 
