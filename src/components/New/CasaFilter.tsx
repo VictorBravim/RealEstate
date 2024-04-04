@@ -70,16 +70,44 @@ interface Props {
 
 export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransacao }: Props) {
     const [filteredCasas, setFilteredCasas] = useState<Casa[]>(casas);
-    const [filtroBanheiro, setFiltroBanheiro] = useState<number | null>(null);
-    const [filtroQuarto, setFiltroQuarto] = useState<number | null>(null);
-    const [filtroGaragem, setFiltroGaragem] = useState<number | null>(null);
+    const [filtroBanheiro, setFiltroBanheiro] = useState<number>(0);
+    const [filtroQuarto, setFiltroQuarto] = useState<number>(0);
+    const [filtroGaragem, setFiltroGaragem] = useState<number>(0);
     const [faixaPrecoMin, setFaixaPrecoMin] = useState<number | null>(null);
     const [faixaPrecoMax, setFaixaPrecoMax] = useState<number | null>(null);
     const [filtroPesquisa, setFiltroPesquisa] = useState<string>('');
+    const [filtroCategoriaLocal, setFiltroCategoriaLocal] = useState<string>('');
+    const [filtroTransacaoLocal, setFiltroTransacaoLocal] = useState<string>('');
 
     useEffect(() => {
         applyFilters();
-    }, [searchQuery, filtroCategoria, filtroTransacao, filtroBanheiro, filtroQuarto, filtroGaragem]);
+    }, [searchQuery, filtroCategoria, filtroTransacao, filtroBanheiro, filtroQuarto, filtroGaragem, faixaPrecoMin, faixaPrecoMax, filtroPesquisa, filtroCategoriaLocal, filtroTransacaoLocal]);
+
+    useEffect(() => {
+        if (faixaPrecoMin === null && faixaPrecoMax === null) {
+            applyFilters();
+        }
+    }, [faixaPrecoMin, faixaPrecoMax]);
+
+    const handleFaixaPrecoMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.trim();
+        if (value === '' || value === 'R$') {
+            setFaixaPrecoMin(null);
+        } else {
+            const numericValue = parseFloat(value.replace("R$", "").trim());
+            setFaixaPrecoMin(numericValue);
+        }
+    };
+    
+    const handleFaixaPrecoMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.trim();
+        if (value === '' || value === 'R$') {
+            setFaixaPrecoMax(null);
+        } else {
+            const numericValue = parseFloat(value.replace("R$", "").trim());
+            setFaixaPrecoMax(numericValue);
+        }
+    };
 
     const applyFilters = () => {
         let filtered = [...casas];
@@ -90,13 +118,13 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                 casa.id.toString().toLowerCase().includes(searchQuery.toLowerCase())
             );
         }
-        if (filtroBanheiro !== null) {
+        if (filtroBanheiro !== 0) {
             filtered = filtered.filter(casa => casa.banheiro === filtroBanheiro);
         }
-        if (filtroQuarto !== null) {
+        if (filtroQuarto !== 0) {
             filtered = filtered.filter(casa => casa.quarto === filtroQuarto);
         }
-        if (filtroGaragem !== null) {
+        if (filtroGaragem !== 0) {
             filtered = filtered.filter(casa => casa.garagem === filtroGaragem);
         }
         if (faixaPrecoMin !== null) {
@@ -108,6 +136,12 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
         if (filtroPesquisa !== '') {
             filtered = filtered.filter(casa => casa.localizacao.includes(filtroPesquisa) || casa.cep.includes(filtroPesquisa) || casa.id.toString().includes(filtroPesquisa));
         }
+        if (filtroCategoriaLocal && filtroCategoriaLocal !== '') {
+            filtered = filtered.filter(casa => casa.categoria === filtroCategoriaLocal);
+        }
+        if (filtroTransacaoLocal && filtroTransacaoLocal !== '') {
+            filtered = filtered.filter(casa => casa.transacao === filtroTransacaoLocal);
+        }
         if (filtroCategoria) {
             filtered = filtered.filter(casa => casa.categoria === filtroCategoria);
         }
@@ -118,12 +152,14 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
     };
 
     const clearFilters = () => {
-        setFiltroBanheiro(null);
-        setFiltroQuarto(null);
-        setFiltroGaragem(null);
+        setFiltroBanheiro(0);
+        setFiltroQuarto(0);
+        setFiltroGaragem(0);
         setFaixaPrecoMin(null);
         setFaixaPrecoMax(null);
         setFiltroPesquisa('');
+        setFiltroCategoriaLocal('');
+        setFiltroTransacaoLocal('');
         setFilteredCasas(casas);
     };
 
@@ -135,22 +171,39 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                         <div className="text-start mb-5">
                             <h5>Filtrar por:</h5>
                             <div className="input-group mb-3">
+                                <span className="input-group-text">Categoria</span>
+                                <select name="filtro-categoria" className="form-select" value={filtroCategoriaLocal} onChange={(e) => setFiltroCategoriaLocal(e.target.value)}>
+                                    <option value="">Todas</option>
+                                    <option value="Casa">Casa</option>
+                                    <option value="Apartamento">Apartamento</option>
+                                    <option value="Comercial">Comercial</option>
+                                </select>
+                            </div>
+                            <div className="input-group mb-3">
+                                <span className="input-group-text">Transação</span>
+                                <select name="filtro-transacao" className="form-select" value={filtroTransacaoLocal} onChange={(e) => setFiltroTransacaoLocal(e.target.value)}>
+                                    <option value="">Todas</option>
+                                    <option value="Aluguel">Aluguel</option>
+                                    <option value="Compra">Compra</option>
+                                </select>
+                            </div>
+                            <div className="input-group mb-3">
                                 <span className="input-group-text">Banheiros</span>
-                                <button className="btn btn-outline-primary" onClick={() => setFiltroBanheiro((filtroBanheiro || 0) + 1)}>+</button>
-                                <input type="text" className="form-control text-center" value={filtroBanheiro || ''} readOnly />
                                 <button className="btn btn-outline-primary" onClick={() => setFiltroBanheiro((filtroBanheiro && filtroBanheiro > 0) ? filtroBanheiro - 1 : 0)}>-</button>
+                                <input type="text" className="form-control text-center" value={filtroBanheiro || '0'} readOnly />
+                                <button className="btn btn-outline-primary" onClick={() => setFiltroBanheiro((filtroBanheiro || 0) + 1)}>+</button>
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text">Quartos</span>
-                                <button className="btn btn-outline-primary" onClick={() => setFiltroQuarto((filtroQuarto || 0) + 1)}>+</button>
-                                <input type="text" className="form-control text-center" value={filtroQuarto || ''} readOnly />
                                 <button className="btn btn-outline-primary" onClick={() => setFiltroQuarto((filtroQuarto && filtroQuarto > 0) ? filtroQuarto - 1 : 0)}>-</button>
+                                <input type="text" className="form-control text-center" value={filtroQuarto || '0'} readOnly />
+                                <button className="btn btn-outline-primary" onClick={() => setFiltroQuarto((filtroQuarto || 0) + 1)}>+</button>
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text">Garagens</span>
-                                <button className="btn btn-outline-primary" onClick={() => setFiltroGaragem((filtroGaragem || 0) + 1)}>+</button>
-                                <input type="text" className="form-control text-center" value={filtroGaragem || ''} readOnly />
                                 <button className="btn btn-outline-primary" onClick={() => setFiltroGaragem((filtroGaragem && filtroGaragem > 0) ? filtroGaragem - 1 : 0)}>-</button>
+                                <input type="text" className="form-control text-center" value={filtroGaragem || '0'} readOnly />
+                                <button className="btn btn-outline-primary" onClick={() => setFiltroGaragem((filtroGaragem || 0) + 1)}>+</button>
                             </div>
                             <div className="input-group mb-3">
                                 <span className="input-group-text">Preço</span>
@@ -158,15 +211,15 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                                     type="text"
                                     className="form-control"
                                     placeholder="Mín"
-                                    onChange={e => setFaixaPrecoMin(parseFloat(e.target.value.replace("R$", "").trim()))}
-                                    value={faixaPrecoMin ? `R$ ${faixaPrecoMin}` : ''}
+                                    onChange={handleFaixaPrecoMinChange}
+                                    value={faixaPrecoMin !== null ? `R$ ${faixaPrecoMin}` : ''}
                                 />
                                 <input
                                     type="text"
                                     className="form-control"
                                     placeholder="Máx"
-                                    onChange={e => setFaixaPrecoMax(parseFloat(e.target.value.replace("R$", "").trim()))}
-                                    value={faixaPrecoMax ? `R$ ${faixaPrecoMax}` : ''}
+                                    onChange={handleFaixaPrecoMaxChange}
+                                    value={faixaPrecoMax !== null ? `R$ ${faixaPrecoMax}` : ''}
                                 />
                             </div>
 
@@ -196,7 +249,6 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                                             <small className="flex-fill text-center border-end py-2"><i className="bx bxs-bed color-i me-2"></i>{casa.quarto} Quartos</small>
                                             <small className="flex-fill text-center py-2"><i className="bx bxs-bath color-i me-2"></i>{casa.garagem} Garagens</small>
                                         </div>
-                                        <p className="text-center mt-3"><strong>CEP:</strong> {casa.cep}</p>
                                     </div>
                                 </div>
                             ))}
