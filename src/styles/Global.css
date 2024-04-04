@@ -14774,10 +14774,35 @@ textarea {
     background-color: rgba(0, 32, 74, 0.05);
 }
 
+/* Global.css */
+@media screen and (max-width: 767px) {
+    .sm-row {
+        display: flex;
+        flex-direction: row !important;
+    }
+    .ul .sm-mr {
+        margin-right: 5% !important;
+    }
+}
+
+.site-footer h2 {
+    color: #000 !important;
+}
+
+.u-l {
+    text-decoration: white underline !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.u-l:hover {
+    text-decoration: none !important;
+}
+
 .box-feature {
     background: #fff;
     border-radius: 4px;
-    padding: 30px;
+    padding: 20px;
     margin-bottom: 30px;
 }
 

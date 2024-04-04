@@ -22,29 +22,29 @@ export default function Footer() {
                         <div className="row">
                             <div className="col-md-6 col-lg-4">
                                 <h2>Links</h2>
-                                <ul className="list-unstyled">
-                                    <li><Link href="/">Home</Link></li>
-                                    <li><Link href="/Propriedade">Propriedades</Link></li>
-                                    <li><Link href="/Servicos">Serviços</Link></li>
-                                    <li><Link href="/Contato">Contato</Link></li>
+                                <ul className="list-unstyled sm-row">
+                                    <li><Link href="/" className="sm-mr">Home</Link></li>
+                                    <li><Link href="/Propriedade" className="sm-mr">Propriedades</Link></li>
+                                    <li><Link href="/Servicos" className="sm-mr">Serviços</Link></li>
+                                    <li><Link href="/Contato" className="sm-mr">Contato</Link></li>
                                 </ul>
                             </div>
                             <div className="col-md-6 col-lg-4">
                                 <h2>Outros Links</h2>
-                                <ul className="list-unstyled">
-                                    <li><a href="#">Link 1</a></li>
-                                    <li><a href="#">Link 2</a></li>
-                                    <li><a href="#">Link 3</a></li>
-                                    <li><a href="#">Link 4</a></li>
+                                <ul className="list-unstyled sm-row">
+                                    <li><a href="#" className="sm-mr">Link 1</a></li>
+                                    <li><a href="#" className="sm-mr">Link 2</a></li>
+                                    <li><a href="#" className="sm-mr">Link 3</a></li>
+                                    <li><a href="#" className="sm-mr">Link 4</a></li>
                                 </ul>
                             </div>
                             <div className="col-md-6 col-lg-4">
                                 <h2>Redes Sociais</h2>
-                                <ul className="list-unstyled">
-                                    <li><a href="#">Facebook</a></li>
-                                    <li><a href="#">Twitter</a></li>
-                                    <li><a href="#">Instagram</a></li>
-                                    <li><a href="#">LinkedIn</a></li>
+                                <ul className="list-unstyled sm-row">
+                                    <li><a href="#" className="sm-mr">Facebook</a></li>
+                                    <li><a href="#" className="sm-mr">Twitter</a></li>
+                                    <li><a href="#" className="sm-mr">Instagram</a></li>
+                                    <li><a href="#" className="sm-mr">LinkedIn</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -36,8 +36,7 @@ export default function Simulador() {
                   Casa à venda
                 </h3>
                 <p className="text-black-50">
-                  Muito, muito longe, atrás da palavra montanhas, longe dos países
-                  Vokalia e Consonantia, aí vivem os textos cegos.
+                Suspendisse ultricies Nulla quis dapibus nisl.
                 </p>
                 <p><a href="#" className="learn-more">Mais </a></p>
               </div>
@@ -47,8 +46,7 @@ export default function Simulador() {
                 <span className="flaticon-house-2 mb-4 d-block-3"></span>
                 <h3 className="text-black mb-3 font-weight-bold">Casa à venda</h3>
                 <p className="text-black-50">
-                  Muito, muito longe, atrás da palavra montanhas, longe dos países
-                  Vokalia e Consonantia, aí vivem os textos cegos.
+                Suspendisse ultricies Nulla quis dapibus nisl.
                 </p>
                 <p><a href="#" className="learn-more">Mais </a></p>
               </div>
@@ -60,8 +58,7 @@ export default function Simulador() {
                   Casa à venda
                 </h3>
                 <p className="text-black-50">
-                  Muito, muito longe, atrás da palavra montanhas, longe dos países
-                  Vokalia e Consonantia, aí vivem os textos cegos.
+                Suspendisse ultricies Nulla quis dapibus nisl.
                 </p>
                 <p><a href="#" className="learn-more">Mais </a></p>
               </div>
@@ -71,8 +68,7 @@ export default function Simulador() {
                 <span className="flaticon-house-3 mb-4 d-block-1"></span>
                 <h3 className="text-black mb-3 font-weight-bold">Casa à venda</h3>
                 <p className="text-black-50">
-                  Muito, muito longe, atrás da palavra montanhas, longe dos países
-                  Vokalia e Consonantia, aí vivem os textos cegos.
+                Suspendisse ultricies Nulla quis dapibus nisl.
                 </p>
                 <p><a href="#" className="learn-more">Mais </a></p>
               </div>
