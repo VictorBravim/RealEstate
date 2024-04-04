@@ -133,7 +133,7 @@ export default function New() {
                                 <div key={casa.id} className="col-lg-4 col-md-6 wow fadeInUp property-container" data-wow-delay="0.1s">
                                     <div className="property-item rounded overflow-hidden">
                                         <div className="position-relative overflow-hidden">
-                                            <a href={`/casa${casa.id}.html`}><Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" /></a>
+                                            <Link href="/Casa"><Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" /></Link>
                                             <div className={`bg-${casa.tipo === 'Venda' ? 'primary' : 'success'} rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3 cor-v`}>
                                                 {casa.tipo}
                                             </div>

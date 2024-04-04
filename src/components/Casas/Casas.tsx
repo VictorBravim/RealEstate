@@ -1,5 +1,6 @@
 // Casas.tsx
 import "bootstrap/dist/css/bootstrap.min.css";
+import "@/styles/Globalll.css"
 
 export default function Casas() {
     return (
