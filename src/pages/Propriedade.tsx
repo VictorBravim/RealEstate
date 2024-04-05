@@ -1,7 +1,7 @@
 // Propriedade.tsx
 import Nav from '@/components/Nav/Nav'
 import HeroM from '@/components/Hero/HeroM'
-import CasaFilter from '@/components/New/CasaFilter';
+import CasaFilter from '@/components/Propriedade/CasaFilter';
 import Footer from '@/components/Footer/Footer'
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';

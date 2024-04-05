@@ -1,4 +1,4 @@
-// New.tsx
+// Propriedades.tsx
 'use client'
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -16,87 +16,87 @@ interface Casa {
     banheiro: number;
     quarto: number;
     garagem: number;
-    tipo: string;
+    categoria: string;
 }
 
 const casas: Casa[] = [
     {
         id: 1,
         nome: 'Casa 1',
-        preco: '$200,000',
+        preco: '200,000',
         localizacao: 'Rua A, Bairro Z',
         imgSrc: casa.src,
         banheiro: 2,
         quarto: 3,
         garagem: 2,
-        tipo: 'Venda',
+        categoria: 'Venda',
     },
     {
         id: 2,
         nome: 'Casa 2',
-        preco: '$250,000',
+        preco: '250,000',
         localizacao: 'Rua B, Bairro Y',
         imgSrc: casa.src,
         banheiro: 3,
         quarto: 4,
         garagem: 3,
-        tipo: 'Alugar',
+        categoria: 'Alugar',
     },
     {
         id: 3,
         nome: 'Casa 3',
-        preco: '$150,000',
+        preco: '150,000',
         localizacao: 'Rua C, Bairro X',
         imgSrc: casa.src,
         banheiro: 1,
         quarto: 2,
         garagem: 1,
-        tipo: 'Venda',
+        categoria: 'Venda',
     },
     {
         id: 4,
         nome: 'Casa 4',
-        preco: '$350,000',
+        preco: '350,000',
         localizacao: 'Rua D, Bairro W',
         imgSrc: casa.src,
         banheiro: 3,
         quarto: 3,
         garagem: 2,
-        tipo: 'Alugar',
+        categoria: 'Alugar',
     },
     {
         id: 5,
         nome: 'Casa 5',
-        preco: '$100,000',
+        preco: '100,000',
         localizacao: 'Rua E, Bairro V',
         imgSrc: casa.src,
         banheiro: 1,
         quarto: 1,
         garagem: 0,
-        tipo: 'Alugar',
+        categoria: 'Alugar',
     },
     {
         id: 6,
         nome: 'Casa 6',
-        preco: '$450,000',
+        preco: '450,000',
         localizacao: 'Rua F, Bairro U',
         imgSrc: casa.src,
         banheiro: 5,
         quarto: 4,
         garagem: 3,
-        tipo: 'Venda',
+        categoria: 'Venda',
     },
 ];
 
-export default function New() {
+export default function Propriedades() {
     const [filteredCasas, setFilteredCasas] = useState<Casa[]>(casas);
     const [activeFilter, setActiveFilter] = useState('');
 
-    const filterCasas = (tipo: string) => {
-        if (tipo === activeFilter) return;
-        setActiveFilter(tipo);
-        if (tipo === 'Venda' || tipo === 'Alugar') {
-            const filtered = casas.filter(casa => casa.tipo === tipo);
+    const filterCasas = (categoria: string) => {
+        if (categoria === activeFilter) return;
+        setActiveFilter(categoria);
+        if (categoria === 'Venda' || categoria === 'Alugar') {
+            const filtered = casas.filter(casa => casa.categoria === categoria);
             setFilteredCasas(filtered);
         } else {
             setFilteredCasas(casas);
@@ -133,9 +133,13 @@ export default function New() {
                                 <div key={casa.id} className="col-lg-4 col-md-6 wow fadeInUp property-container" data-wow-delay="0.1s">
                                     <div className="property-item rounded overflow-hidden">
                                         <div className="position-relative overflow-hidden">
-                                            <Link href="/Casa"><Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" /></Link>
-                                            <div className={`bg-${casa.tipo === 'Venda' ? 'primary' : 'success'} rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3 cor-v`}>
-                                                {casa.tipo}
+
+                                            <Link href={`/Casa?nome=${encodeURIComponent(casa.nome)}&preco=${encodeURIComponent(casa.preco)}&banheiro=${casa.banheiro}&quarto=${casa.quarto}&garagem=${casa.garagem}&categoria=${casa.categoria}&imgSrc=${encodeURIComponent(casa.imgSrc)}`}>
+                                                <Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" />
+                                            </Link>
+
+                                            <div className={`bg-${casa.categoria === 'Venda' ? 'primary' : 'success'} rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3 cor-v`}>
+                                                {casa.categoria}
                                             </div>
                                             <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3 cor-f">
                                                 Casa

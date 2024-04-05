@@ -2,6 +2,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.min.css";
 import casa from "@/assets/casa.webp"
 import "@/styles/Globall.css"
@@ -32,7 +33,7 @@ const casas: Casa[] = [
         quarto: 3,
         garagem: 2,
         categoria: 'Apartamento',
-        transacao: 'Aluguel',
+        transacao: 'Alugar',
     },
     {
         id: 2,
@@ -45,7 +46,7 @@ const casas: Casa[] = [
         quarto: 4,
         garagem: 3,
         categoria: 'Comercial',
-        transacao: 'Compra',
+        transacao: 'Venda',
     },
     {
         id: 3,
@@ -58,7 +59,7 @@ const casas: Casa[] = [
         quarto: 2,
         garagem: 1,
         categoria: 'Casa',
-        transacao: 'Aluguel',
+        transacao: 'Alugar',
     },
 ];
 
@@ -98,7 +99,7 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
             setFaixaPrecoMin(numericValue);
         }
     };
-    
+
     const handleFaixaPrecoMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.trim();
         if (value === '' || value === 'R$') {
@@ -237,7 +238,15 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                                 <div key={casa.id} className="col-lg-4 col-md-6 wow fadeInUp property-container" data-wow-delay="0.1s">
                                     <div className="property-item rounded overflow-hidden">
                                         <div className="position-relative overflow-hidden">
-                                            <a href={`/casa${casa.id}.html`}><Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" /></a>
+                                            <Link href={`/Casa?nome=${encodeURIComponent(casa.nome)}&preco=${encodeURIComponent(casa.preco)}&banheiro=${casa.banheiro}&quarto=${casa.quarto}&garagem=${casa.garagem}&categoria=${casa.categoria}&imgSrc=${encodeURIComponent(casa.imgSrc)}`}>
+                                                <Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" />
+                                            </Link>
+                                            <div className={`bg-${casa.transacao === 'Venda' ? 'primary' : 'success'} rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3 cor-v`}>
+                                                {casa.transacao}
+                                            </div>
+                                            <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3 cor-f">
+                                                Casa
+                                            </div>
                                         </div>
                                         <div className="p-4 pb-0">
                                             <h5 className="text-primary mb-3">R$ {casa.preco.toLocaleString('pt-BR')}</h5>
