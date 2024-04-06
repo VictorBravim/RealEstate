@@ -5,7 +5,7 @@ import user from '@/assets/user.png'
 
 export default function Casa() {
     const router = useRouter();
-    const { nome, preco, banheiro, quarto, garagem, categoria, imgSrc } = router.query;
+    const { nome, preco, banheiro, quarto, garagem, transacao, imgSrc } = router.query;
 
     const isValidImgSrc = typeof imgSrc === 'string' && imgSrc.trim() !== '';
 
@@ -104,7 +104,7 @@ export default function Casa() {
                                                         </span>
                                                         <span className="property-info-entry">
                                                             <span className="property-info-label">Status</span>
-                                                            <span className="property-info-value">{categoria}</span>
+                                                            <span className="property-info-value">{transacao}</span>
                                                         </span>
                                                     </div>
                                                     <div className="col-xs-6 col-sm-6 col-md-6 p-b-15">

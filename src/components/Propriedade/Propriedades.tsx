@@ -16,6 +16,7 @@ interface Casa {
     banheiro: number;
     quarto: number;
     garagem: number;
+    transacao: string;
     categoria: string;
 }
 
@@ -29,7 +30,8 @@ const casas: Casa[] = [
         banheiro: 2,
         quarto: 3,
         garagem: 2,
-        categoria: 'Venda',
+        transacao: 'Comprar',
+        categoria: 'Casa',
     },
     {
         id: 2,
@@ -40,7 +42,8 @@ const casas: Casa[] = [
         banheiro: 3,
         quarto: 4,
         garagem: 3,
-        categoria: 'Alugar',
+        transacao: 'Alugar',
+        categoria: 'Comercial',
     },
     {
         id: 3,
@@ -51,7 +54,8 @@ const casas: Casa[] = [
         banheiro: 1,
         quarto: 2,
         garagem: 1,
-        categoria: 'Venda',
+        transacao: 'Comprar',
+        categoria: 'Apartamento',
     },
     {
         id: 4,
@@ -62,7 +66,8 @@ const casas: Casa[] = [
         banheiro: 3,
         quarto: 3,
         garagem: 2,
-        categoria: 'Alugar',
+        transacao: 'Alugar',
+        categoria: 'Casa',
     },
     {
         id: 5,
@@ -73,7 +78,8 @@ const casas: Casa[] = [
         banheiro: 1,
         quarto: 1,
         garagem: 0,
-        categoria: 'Alugar',
+        transacao: 'Alugar',
+        categoria: 'Comercial',
     },
     {
         id: 6,
@@ -84,7 +90,8 @@ const casas: Casa[] = [
         banheiro: 5,
         quarto: 4,
         garagem: 3,
-        categoria: 'Venda',
+        transacao: 'Comprar',
+        categoria: 'Apartamento',
     },
 ];
 
@@ -92,11 +99,11 @@ export default function Propriedades() {
     const [filteredCasas, setFilteredCasas] = useState<Casa[]>(casas);
     const [activeFilter, setActiveFilter] = useState('');
 
-    const filterCasas = (categoria: string) => {
-        if (categoria === activeFilter) return;
-        setActiveFilter(categoria);
-        if (categoria === 'Venda' || categoria === 'Alugar') {
-            const filtered = casas.filter(casa => casa.categoria === categoria);
+    const filterCasas = (transacao: string) => {
+        if (transacao === activeFilter) return;
+        setActiveFilter(transacao);
+        if (transacao === 'Comprar' || transacao === 'Alugar') {
+            const filtered = casas.filter(casa => casa.transacao === transacao);
             setFilteredCasas(filtered);
         } else {
             setFilteredCasas(casas);
@@ -109,7 +116,7 @@ export default function Propriedades() {
                 <div className="row g-0 gx-5 align-items-end">
                     <div className="col-lg-6">
                         <div className="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
-                            <h1 className="mb-3">Lista de Propriedades</h1>
+                            <h1 className="mb-3">Novas Propriedades</h1>
                         </div>
                     </div>
                     <div className="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
@@ -118,7 +125,7 @@ export default function Propriedades() {
                                 <button id="btn-all" className={`btn btn-outline-primary ${activeFilter === '' ? 'active' : ''}`} onClick={() => filterCasas('')}>Propriedades</button>
                             </li>
                             <li className="nav-item me-2">
-                                <button id="btn-venda" className={`btn btn-outline-primary ${activeFilter === 'Venda' ? 'active' : ''}`} onClick={() => filterCasas('Venda')}>Venda</button>
+                                <button id="btn-venda" className={`btn btn-outline-primary ${activeFilter === 'Comprar' ? 'active' : ''}`} onClick={() => filterCasas('Comprar')}>Comprar</button>
                             </li>
                             <li className="nav-item me-0">
                                 <button id="btn-alugar" className={`btn btn-outline-primary ${activeFilter === 'Alugar' ? 'active' : ''}`} onClick={() => filterCasas('Alugar')}>Alugar</button>
@@ -134,15 +141,15 @@ export default function Propriedades() {
                                     <div className="property-item rounded overflow-hidden">
                                         <div className="position-relative overflow-hidden">
 
-                                            <Link href={`/Casa?nome=${encodeURIComponent(casa.nome)}&preco=${encodeURIComponent(casa.preco)}&banheiro=${casa.banheiro}&quarto=${casa.quarto}&garagem=${casa.garagem}&categoria=${casa.categoria}&imgSrc=${encodeURIComponent(casa.imgSrc)}`}>
+                                            <Link href={`/Casa?nome=${encodeURIComponent(casa.nome)}&preco=${encodeURIComponent(casa.preco)}&banheiro=${casa.banheiro}&quarto=${casa.quarto}&garagem=${casa.garagem}&transacao=${casa.transacao}&imgSrc=${encodeURIComponent(casa.imgSrc)}`}>
                                                 <Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" />
                                             </Link>
 
-                                            <div className={`bg-${casa.categoria === 'Venda' ? 'primary' : 'success'} rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3 cor-v`}>
-                                                {casa.categoria}
+                                            <div className={`bg-${casa.transacao === 'Venda' ? 'primary' : 'success'} rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3 cor-v`}>
+                                                {casa.transacao}
                                             </div>
                                             <div className="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3 cor-f">
-                                                Casa
+                                                {casa.categoria}
                                             </div>
                                         </div>
                                         <div className="p-4 pb-0">
