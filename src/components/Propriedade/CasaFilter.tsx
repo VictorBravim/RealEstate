@@ -223,7 +223,6 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                                     value={faixaPrecoMax !== null ? `R$ ${faixaPrecoMax}` : ''}
                                 />
                             </div>
-
                             <div className="input-group mb-3">
                                 <span className="input-group-text">Pesquisar</span>
                                 <input type="text" className="form-control" placeholder="Localização, CEP ou ID" onChange={e => setFiltroPesquisa(e.target.value)} />
@@ -236,11 +235,10 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                         <div className="row g-4">
                             {filteredCasas.map(casa => (
                                 <div key={casa.id} className="col-lg-4 col-md-6 wow fadeInUp property-container" data-wow-delay="0.1s">
-                                    <div className="property-item rounded overflow-hidden">
-                                        <div className="position-relative overflow-hidden">
-                                            <Link href={`/Casa?nome=${encodeURIComponent(casa.nome)}&preco=${encodeURIComponent(casa.preco)}&banheiro=${casa.banheiro}&quarto=${casa.quarto}&garagem=${casa.garagem}&transacao=${casa.transacao}&imgSrc=${encodeURIComponent(casa.imgSrc)}`}>
+                                    <Link href={`/Casa?nome=${encodeURIComponent(casa.nome)}&preco=${encodeURIComponent(casa.preco)}&banheiro=${casa.banheiro}&quarto=${casa.quarto}&garagem=${casa.garagem}&transacao=${casa.transacao}&imgSrc=${encodeURIComponent(casa.imgSrc)}`}>
+                                    <div className="property-item rounded overflow-hidden shadow-card">
+                                        <div className="position-relative overflow-hidden">                                         
                                                 <Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" />
-                                            </Link>
                                             <div className={`bg-${casa.transacao === 'Venda' ? 'primary' : 'success'} rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3 cor-v`}>
                                                 {casa.transacao}
                                             </div>
@@ -250,7 +248,7 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                                         </div>
                                         <div className="p-4 pb-0">
                                             <h5 className="text-primary mb-3">R$ {casa.preco.toLocaleString('pt-BR')}</h5>
-                                            <a className="d-block h5 mb-2" href="">{casa.nome}</a>
+                                            <div className="d-block h5 mb-2">{casa.nome}</div>
                                             <p>{casa.localizacao}</p>
                                         </div>
                                         <div className="d-flex border-top">
@@ -259,6 +257,7 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                                             <small className="flex-fill text-center py-2"><i className="bx bxs-bath color-i me-2"></i>{casa.garagem} Garagens</small>
                                         </div>
                                     </div>
+                                    </Link>
                                 </div>
                             ))}
                         </div>

@@ -138,13 +138,10 @@ export default function Propriedades() {
                         <div className="row g-4">
                             {filteredCasas.map(casa => (
                                 <div key={casa.id} className="col-lg-4 col-md-6 wow fadeInUp property-container" data-wow-delay="0.1s">
-                                    <div className="property-item rounded overflow-hidden">
+                                    <Link href={`/Casa?nome=${encodeURIComponent(casa.nome)}&preco=${encodeURIComponent(casa.preco)}&banheiro=${casa.banheiro}&quarto=${casa.quarto}&garagem=${casa.garagem}&transacao=${casa.transacao}&imgSrc=${encodeURIComponent(casa.imgSrc)}`}>
+                                    <div className="property-item rounded overflow-hidden shadow-card">
                                         <div className="position-relative overflow-hidden">
-
-                                            <Link href={`/Casa?nome=${encodeURIComponent(casa.nome)}&preco=${encodeURIComponent(casa.preco)}&banheiro=${casa.banheiro}&quarto=${casa.quarto}&garagem=${casa.garagem}&transacao=${casa.transacao}&imgSrc=${encodeURIComponent(casa.imgSrc)}`}>
                                                 <Image src={casa.imgSrc} alt="Logo" width={500} height={40} className="img-fluid" />
-                                            </Link>
-
                                             <div className={`bg-${casa.transacao === 'Venda' ? 'primary' : 'success'} rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3 cor-v`}>
                                                 {casa.transacao}
                                             </div>
@@ -153,8 +150,8 @@ export default function Propriedades() {
                                             </div>
                                         </div>
                                         <div className="p-4 pb-0">
-                                            <h5 className="text-primary mb-3">{casa.preco}</h5>
-                                            <a className="d-block h5 mb-2" href="">{casa.nome}</a>
+                                            <h5 className="text-primary mb-3">R$ {casa.preco}</h5>
+                                            <div className="d-block h5 mb-2">{casa.nome}</div>
                                             <p>{casa.localizacao}</p>
                                         </div>
                                         <div className="d-flex border-top">
@@ -165,6 +162,7 @@ export default function Propriedades() {
                                             <small className="flex-fill text-center py-2"><i className="bx bxs-bath color-i me-2"></i>{casa.garagem} Garagens</small>
                                         </div>
                                     </div>
+                                    </Link>
                                 </div>
                             ))}
                             <div className="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">

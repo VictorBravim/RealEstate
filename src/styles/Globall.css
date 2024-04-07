@@ -648,6 +648,10 @@ a:hover {
     border-radius: 7px;
 }
 
+.shadow-card {
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px !important;
+}
+
 .form-searche label {
     text-transform: uppercase;
     font-size: 13px;
@@ -1023,9 +1027,9 @@ a:hover {
 }
 
 .property-item .border-top {
-    border-top: 1px dashed rgba(0, 185, 142, .3) !important;
+    border-top: 0px solid rgba(0, 0, 0, 0.3) !important;
 }
 
 .property-item .border-end {
-    border-right: 1px dashed rgba(0, 185, 142, .3) !important;
+    border-right: 1px solid rgba(0, 0, 0, 0.3) !important;
 }
