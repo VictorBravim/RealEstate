@@ -10,13 +10,37 @@ import logo from '@/assets/logo.webp';
 export default function Nav() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [currentRoute, setCurrentRoute] = useState('/');
+    const [isSticky, setIsSticky] = useState(false);
 
     const handleMenuToggle = () => {
         setMenuOpen(!menuOpen);
     };
 
     useEffect(() => {
+        const body = document.body;
+        if (menuOpen) {
+            body.classList.add('offcanvas-menu');
+        } else {
+            body.classList.remove('offcanvas-menu');
+        }
+    }, [menuOpen]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsSticky(true);
+            } else {
+                setIsSticky(false);
+            }
+        };
+
         setCurrentRoute(window.location.pathname);
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
 
     return (
@@ -37,7 +61,7 @@ export default function Nav() {
                 </div>
             </div>
 
-            <nav className="site-nav">
+            <nav className={`site-nav ${isSticky ? 'sticky' : ''}`}>
                 <div className="container">
                     <div className="menu-bg-wrap">
                         <div className="site-navigation">

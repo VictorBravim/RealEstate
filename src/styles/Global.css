@@ -13447,6 +13447,25 @@ body {
     color: #000 !important;
 }
 
+/*
+.site-nav {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    width: 100%;
+    color: #000 !important;
+    transition: top 0.3s ease;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    background-color: none;
+}
+*/
+
 .site-nav h1,
 .site-nav .h1 {
     margin: 0;

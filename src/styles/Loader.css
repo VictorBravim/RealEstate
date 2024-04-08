@@ -11,7 +11,8 @@
 
 .loader-circle {
   position: relative;
-  width: 135px;
+  display: flex;
+  width: 85px;
   height: 160px;
   background-repeat: no-repeat;
   background-image: linear-gradient(#FFF 50px, transparent 0),
