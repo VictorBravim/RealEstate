@@ -13490,6 +13490,7 @@ body {
 
 .site-nav .site-navigation .site-menu>li.active>a {
     color: black !important;
+    text-decoration: underline 2px white !important;
     font-weight: 600;
     font-size: large;
 }
@@ -14790,7 +14791,7 @@ textarea {
 }
 
 .u-l {
-    text-decoration: white underline !important;
+    text-decoration: none !important;
     padding: 0 !important;
     margin: 0 !important;
 }

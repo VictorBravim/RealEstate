@@ -9,19 +9,15 @@ import logo from '@/assets/logo.webp';
 
 export default function Nav() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [currentRoute, setCurrentRoute] = useState('/');
 
     const handleMenuToggle = () => {
         setMenuOpen(!menuOpen);
     };
 
     useEffect(() => {
-        const body = document.body;
-        if (menuOpen) {
-            body.classList.add('offcanvas-menu');
-        } else {
-            body.classList.remove('offcanvas-menu');
-        }
-    }, [menuOpen]);
+        setCurrentRoute(window.location.pathname);
+    }, []);
 
     return (
         <div>
@@ -33,10 +29,10 @@ export default function Nav() {
                 </div>
                 <div className="site-mobile-menu-body">
                     <ul className="site-nav-wrap">
-                        <li className="active"><Link href="/">Home</Link></li>
-                        <li><Link href="/Propriedade">Propriedades</Link></li>
-                        <li><Link href="/Servicos">Serviços</Link></li>
-                        <li><Link href="/Contato">Contato</Link></li>
+                        <li className={currentRoute === "/" ? "active" : ""}><Link href="/">Home</Link></li>
+                        <li className={currentRoute === "/Propriedade" ? "active" : ""}><Link href="/Propriedade">Propriedades</Link></li>
+                        <li className={currentRoute === "/Servicos" ? "active" : ""}><Link href="/Servicos">Serviços</Link></li>
+                        <li className={currentRoute === "/Contato" ? "active" : ""}><Link href="/Contato">Contato</Link></li>
                     </ul>
                 </div>
             </div>
@@ -50,10 +46,10 @@ export default function Nav() {
                             </a>
 
                             <ul className="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
-                                <li className="active"><Link href="/">Home</Link></li>
-                                <li><Link href="/Propriedade">Propriedades</Link></li>
-                                <li><Link href="/Servicos">Serviços</Link></li>
-                                <li><Link href="/Contato">Contato</Link></li>
+                                <li className={currentRoute === "/" ? "active" : ""}><Link href="/">Home</Link></li>
+                                <li className={currentRoute === "/Propriedade" ? "active" : ""}><Link href="/Propriedade">Propriedades</Link></li>
+                                <li className={currentRoute === "/Servicos" ? "active" : ""}><Link href="/Servicos">Serviços</Link></li>
+                                <li className={currentRoute === "/Contato" ? "active" : ""}><Link href="/Contato">Contato</Link></li>
                             </ul>
 
                             <a href="#" className="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none" onClick={handleMenuToggle}>
