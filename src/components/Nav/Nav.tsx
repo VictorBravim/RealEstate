@@ -66,7 +66,7 @@ export default function Nav() {
                     <div className="menu-bg-wrap">
                         <div className="site-navigation">
                             <a href="/" className="logo m-1 float-start">
-                                <Image src={logo} alt="Logo" width={50} height={40} className='mr-6' /><p className='u-l'>Casa Nova</p>
+                                <Image src={logo} alt="Logo" width={50} height={40} className='mr-6' />
                             </a>
 
                             <ul className="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">

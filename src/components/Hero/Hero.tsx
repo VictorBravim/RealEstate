@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <div className="hero">
       <div className="hero-slide">
-        <div className="img overlay" style={{ backgroundImage: "url('./bg.webp')" }}></div>
+        <div className="img overlay" style={{ backgroundImage: "url('./bg.png')" }}></div>
       </div>
 
       <div className="container">

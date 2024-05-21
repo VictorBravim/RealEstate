@@ -288,7 +288,7 @@ a:hover {
 
 .site-footer {
     padding: 4em 0;
-    background: #5A8039;
+    background: #000000;
 }
 
 .site-footer p {
@@ -639,7 +639,7 @@ a:hover {
 }
 
 .form-searche {
-    background: #5A8039;
+    background: #000000;
     position: relative;
     z-index: 1;
     padding: 3rem 3rem;
@@ -998,7 +998,7 @@ a:hover {
 
 .bg-primary {
     --bs-bg-opacity: 1;
-    background-color: #5A8039 !important;
+    background-color: #000000 !important;
     color: #000 !important;
     font-weight: 600;
 }
