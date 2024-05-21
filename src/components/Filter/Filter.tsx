@@ -47,7 +47,7 @@ export default function Filter() {
                 <div className="select-wrap">
                   <span className="icon bx bx-chevron-down"></span>
                   <select name="select-city" id="select-city" className="form-control d-block">
-                    <option value="">Campinas</option>
+                    <option value="">Todas</option>
                   </select>
                 </div>
               </div>

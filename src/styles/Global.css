@@ -9446,6 +9446,13 @@ fieldset:disabled .btn {
     white-space: nowrap !important;
 }
 
+.section-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 750px !important;
+}
+
 /* rtl:begin:remove */
 .text-break {
     word-wrap: break-word !important;

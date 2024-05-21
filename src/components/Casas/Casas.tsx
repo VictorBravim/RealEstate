@@ -175,7 +175,7 @@ export default function Casa() {
                                             </div>
                                             <div className="clear">
                                                 <ul className="dealer-contacts">
-                                                    <li><i className="pe-7s-map-marker strong"> </i> Campinas</li>
+                                                    <li><i className="pe-7s-map-marker strong"> </i> São Paulo</li>
                                                     <li><i className="pe-7s-mail strong"> </i> email@Imobiliária.com</li>
                                                     <li><i className="pe-7s-call strong"> </i> +12 99675-9067</li>
                                                 </ul>

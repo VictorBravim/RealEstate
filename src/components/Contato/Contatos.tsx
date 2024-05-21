@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Contatos() {
     return (
-        <div className="section mt-5">
+        <div className="section-custom">
             <div className="container">
                 <div className="row">
                     <div
@@ -18,7 +18,7 @@ export default function Contatos() {
                                 <p>
                                     VILLE SAINTE HÉLÈNE
                                     <br />
-                                    Campinas
+                                    São Paulo
                                 </p>
                             </div>
                             <div className="open-hours mt-4">
