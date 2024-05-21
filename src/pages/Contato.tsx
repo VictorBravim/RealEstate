@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Loader from '@/pages/Loader'
 import Nav from '@/components/Nav/Nav' 
 import HeroM from '@/components/Hero/HeroM'
-import Contatos from '@/components/Propriedade/Contatos'
+import Contatos from '@/components/Contato/Contatos'
 import Footer from '@/components/Footer/Footer'
 
 export default function Contato() {
