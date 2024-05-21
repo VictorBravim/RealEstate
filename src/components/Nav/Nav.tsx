@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.min.css";
 import '@/styles/Global.css';
-import logo from '@/assets/logo.webp';
+import logo from '@/assets/logo.png';
 
 export default function Nav() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -55,12 +55,10 @@ export default function Nav() {
                     <ul className="site-nav-wrap">
                         <li className={currentRoute === "/" ? "active" : ""}><Link href="/">Home</Link></li>
                         <li className={currentRoute === "/Propriedade" ? "active" : ""}><Link href="/Propriedade">Propriedades</Link></li>
-                        <li className={currentRoute === "/Servicos" ? "active" : ""}><Link href="/Servicos">Serviços</Link></li>
                         <li className={currentRoute === "/Contato" ? "active" : ""}><Link href="/Contato">Contato</Link></li>
                     </ul>
                 </div>
             </div>
-
             <nav className={`site-nav ${isSticky ? 'sticky' : ''}`}>
                 <div className="container">
                     <div className="menu-bg-wrap">
@@ -68,14 +66,11 @@ export default function Nav() {
                             <a href="/" className="logo m-1 float-start">
                                 <Image src={logo} alt="Logo" width={50} height={40} className='mr-6' />
                             </a>
-
                             <ul className="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end">
                                 <li className={currentRoute === "/" ? "active" : ""}><Link href="/">Home</Link></li>
                                 <li className={currentRoute === "/Propriedade" ? "active" : ""}><Link href="/Propriedade">Propriedades</Link></li>
-                                <li className={currentRoute === "/Servicos" ? "active" : ""}><Link href="/Servicos">Serviços</Link></li>
                                 <li className={currentRoute === "/Contato" ? "active" : ""}><Link href="/Contato">Contato</Link></li>
                             </ul>
-
                             <a href="#" className="burger light me-auto float-end mt-1 site-menu-toggle js-menu-toggle d-inline-block d-lg-none" onClick={handleMenuToggle}>
                                 <span></span>
                             </a>
