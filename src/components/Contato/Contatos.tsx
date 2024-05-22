@@ -1,5 +1,9 @@
 // Contatos.tsx
 import "bootstrap/dist/css/bootstrap.min.css";
+import { IoLocate } from "react-icons/io5";
+import { IoMdTime } from "react-icons/io";
+import { MdOutlineEmail } from "react-icons/md";
+import { BsTelephonePlus } from "react-icons/bs";
 
 export default function Contatos() {
     return (
@@ -13,7 +17,7 @@ export default function Contatos() {
                     >
                         <div className="contact-info">
                             <div className="address mt-2">
-                                <i className="icon-room bx bx-current-location" />
+                                <i><IoLocate/></i>
                                 <h4 className="mb-2">Localização:</h4>
                                 <p>
                                     VILLE SAINTE HÉLÈNE
@@ -22,7 +26,7 @@ export default function Contatos() {
                                 </p>
                             </div>
                             <div className="open-hours mt-4">
-                                <i className="icon-clock-o bx bx-calendar" />
+                                <i><IoMdTime/></i>
                                 <h4 className="mb-2">funcionamento:</h4>
                                 <p>
                                     Segunda a Sexta:
@@ -31,12 +35,12 @@ export default function Contatos() {
                                 </p>
                             </div>
                             <div className="email mt-4">
-                                <i className="icon-envelope bx bxs-envelope" />
+                                <i><MdOutlineEmail/></i>
                                 <h4 className="mb-2">Email:</h4>
                                 <p>email@Imobiliária.com</p>
                             </div>
                             <div className="phone mt-4">
-                                <i className="icon-phone bx bxs-phone" />
+                                <i><BsTelephonePlus/></i>
                                 <h4 className="mb-2">Numero:</h4>
                                 <p>+12 99675-9067</p>
                             </div>

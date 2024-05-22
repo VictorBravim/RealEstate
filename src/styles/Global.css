@@ -9450,10 +9450,9 @@ fieldset:disabled .btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 750px !important;
+    height: 100vh !important;
 }
 
-/* rtl:begin:remove */
 .text-break {
     word-wrap: break-word !important;
     word-break: break-word !important;
@@ -15036,6 +15035,8 @@ nav[aria-label="breadcrumb"] li:before {
     font-size: 14px;
     color: #fff;
     padding: 30px 0 !important;
+    position: sticky !important;
+    bottom: 0px !important;
 }
 
 .site-footer a {
