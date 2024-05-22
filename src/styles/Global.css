@@ -13830,12 +13830,13 @@ body {
     height: 32px;
     cursor: pointer;
     position: relative;
+    color: white !important;
 }
 
 .burger.light:before,
 .burger.light span,
 .burger.light:after {
-    background: #000;
+    background: white;
 }
 
 .burger:before,
@@ -13844,7 +13845,7 @@ body {
     width: 100%;
     height: 3px;
     display: block;
-    background: #000;
+    background: white;
     border-radius: 2px;
     position: absolute;
     opacity: 1;
