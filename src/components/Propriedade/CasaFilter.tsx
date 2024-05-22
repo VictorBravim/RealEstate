@@ -61,6 +61,84 @@ const casas: Casa[] = [
         categoria: 'Casa',
         transacao: 'Alugar',
     },
+    {
+        id: 4,
+        nome: 'Casa 4',
+        preco: 350000,
+        localizacao: 'Rua D, Bairro W',
+        cep: '58465-432',
+        imgSrc: casa.src,
+        banheiro: 3,
+        quarto: 5,
+        garagem: 3,
+        categoria: 'Apartamento',
+        transacao: 'Comprar',
+    },
+    {
+        id: 5,
+        nome: 'Casa 5',
+        preco: 325000,
+        localizacao: 'Rua E, Bairro V',
+        cep: '88365-412',
+        imgSrc: casa.src,
+        banheiro: 2,
+        quarto: 4,
+        garagem: 2,
+        categoria: 'Comercial',
+        transacao: 'Alugar',
+    },
+    {
+        id: 6,
+        nome: 'Casa 6',
+        preco: 235000,
+        localizacao: 'Rua F, Bairro U',
+        cep: '24365-532',
+        imgSrc: casa.src,
+        banheiro: 2,
+        quarto: 3,
+        garagem: 1,
+        categoria: 'Casa',
+        transacao: 'Comprar',
+    },
+    {
+        id: 7,
+        nome: 'Casa 7',
+        preco: 550000,
+        localizacao: 'Rua G, Bairro T',
+        cep: '48465-432',
+        imgSrc: casa.src,
+        banheiro: 6,
+        quarto: 5,
+        garagem: 4,
+        categoria: 'Apartamento',
+        transacao: 'Comprar',
+    },
+    {
+        id: 8,
+        nome: 'Casa 8',
+        preco: 425000,
+        localizacao: 'Rua H, Bairro S',
+        cep: '23365-412',
+        imgSrc: casa.src,
+        banheiro: 3,
+        quarto: 4,
+        garagem: 4,
+        categoria: 'Comercial',
+        transacao: 'Alugar',
+    },
+    {
+        id: 9,
+        nome: 'Casa 9',
+        preco: 135000,
+        localizacao: 'Rua I, Bairro R',
+        cep: '57365-532',
+        imgSrc: casa.src,
+        banheiro: 1,
+        quarto: 2,
+        garagem: 1,
+        categoria: 'Casa',
+        transacao: 'Comprar',
+    },
 ];
 
 interface Props {
@@ -227,8 +305,6 @@ export default function CasaFilter({ searchQuery, filtroCategoria, filtroTransac
                                 <span className="input-group-text">Pesquisar</span>
                                 <input type="text" className="form-control" placeholder="Localização, CEP ou ID" onChange={e => setFiltroPesquisa(e.target.value)} />
                             </div>
-                            <button className="btn btn-primary me-2" onClick={applyFilters}>Aplicar Filtros</button>
-                            <button className="btn btn-outline-primary" onClick={clearFilters}>Limpar Filtros</button>
                         </div>
                     </div>
                     <div className="col-lg-9">
