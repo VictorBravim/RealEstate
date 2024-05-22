@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.min.css";
-import casa from "@/assets/casa.webp"
+import casa from "@/assets/casa.png"
 import "@/styles/Globall.css"
 
 interface Casa {
