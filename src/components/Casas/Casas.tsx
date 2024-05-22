@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import "@/styles/Globalll.css"
+import { FaTwitter, FaFacebook, FaInstagramSquare, FaLinkedin, FaGoogle, FaBath, FaCar } from "react-icons/fa";
+import { IoHome, IoBed } from "react-icons/io5";
 import user from '@/assets/user.png'
 
 export default function Casa() {
@@ -100,7 +102,7 @@ export default function Casa() {
                                                 <div className="row">
                                                     <div className="col-xs-6 col-sm-6 col-md-6 p-b-15">
                                                         <span className="property-info-icon icon-tag">
-                                                            <i className='bx bxs-home-smile'></i>
+                                                            <i><IoHome /></i>
                                                         </span>
                                                         <span className="property-info-entry">
                                                             <span className="property-info-label">Status</span>
@@ -109,7 +111,7 @@ export default function Casa() {
                                                     </div>
                                                     <div className="col-xs-6 col-sm-6 col-md-6 p-b-15">
                                                         <span className="property-info-icon icon-bed">
-                                                            <i className='bx bxs-bed'></i>
+                                                            <i><IoBed /></i>
                                                         </span>
                                                         <span className="property-info-entry">
                                                             <span className="property-info-label">Quartos</span>
@@ -120,7 +122,7 @@ export default function Casa() {
                                                 <div className="row">
                                                     <div className="col-xs-6 col-sm-6 col-md-6 p-b-15">
                                                         <span className="property-info-icon icon-bath">
-                                                            <i className='bx bxs-bath'></i>
+                                                            <i><FaBath /></i>
                                                         </span>
                                                         <span className="property-info-entry">
                                                             <span className="property-info-label">Banheiros</span>
@@ -129,7 +131,7 @@ export default function Casa() {
                                                     </div>
                                                     <div className="col-xs-6 col-sm-6 col-md-6 p-b-15">
                                                         <span className="property-info-icon icon-garage">
-                                                            <i className='bx bxs-car'></i>
+                                                            <i><FaCar /></i>
                                                         </span>
                                                         <span className="property-info-entry">
                                                             <span className="property-info-label">Garagens</span>
@@ -156,19 +158,19 @@ export default function Casa() {
                                                     </h3>
                                                     <div className="dealer-social-media">
                                                         <a className="twitter" target="_blank" href="">
-                                                            <i className='bx bxl-twitter'></i>
+                                                            <i><FaTwitter /></i>
                                                         </a>
                                                         <a className="facebook" target="_blank" href="">
-                                                            <i className='bx bxl-facebook'></i>
+                                                            <i><FaFacebook /></i>
                                                         </a>
                                                         <a className="gplus" target="_blank" href="">
-                                                            <i className='bx bxl-google'></i>
+                                                            <i><FaGoogle /></i>
                                                         </a>
                                                         <a className="linkedin" target="_blank" href="">
-                                                            <i className='bx bxl-linkedin'></i>
+                                                            <i><FaLinkedin /></i>
                                                         </a>
                                                         <a className="instagram" target="_blank" href="">
-                                                            <i className='bx bxl-instagram-alt'></i>
+                                                            <i><FaInstagramSquare /></i>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -179,8 +181,7 @@ export default function Casa() {
                                                     <li><i className="pe-7s-mail strong"> </i> email@Imobiliária.com</li>
                                                     <li><i className="pe-7s-call strong"> </i> +12 99675-9067</li>
                                                 </ul>
-                                                <p>Duis mollis blandit tempus porttitor curabiturDuis mollis blandit tempus
-                                                    porttitor curabitur , est non…</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu mi sapien. Aliquam quam tortor, hendrerit non condimentum at, congue ultrices diam. Donec elit purus, fringilla eget congue non, mollis vel ligula. Donec a dolor sem. Quisque quis dictum arcu. Nulla tempor ac ante nec congue. Mauris congue erat eu nunc volutpat finibus. Maecenas a efficitur nibh, eget tempor leo. Duis mattis lacinia semper. Quisque ex urna, posuere ac finibus ut, sodales a dui. Nulla feugiat orci id urna placerat, in ornare ipsum dictum.</p>
                                             </div>
                                         </div>
                                     </div>

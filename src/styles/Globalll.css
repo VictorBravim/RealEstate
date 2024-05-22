@@ -2484,6 +2484,7 @@ single property page
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 3px;
+    color: white !important;
 }
 
 .single-property-header .property-price {
@@ -2603,20 +2604,13 @@ single property page
 .dealer-name span {
     font-size: 17px;
     clear: both;
-}
-
-.dealer-face img {
-    opacity: 0.7
-}
-
-.dealer-face img:hover {
-    opacity: 0.9;
-    border: 2px solid #FFF;
+    color: white;
 }
 
 .dealer-social-media a {
     color: #969696;
     margin: 5px;
+    margin-left: 12px;
 }
 
 .dealer-contacts {
