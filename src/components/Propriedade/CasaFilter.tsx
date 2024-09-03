@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import casa from "@/assets/casa.png"
 import "@/styles/Globall.css"
 
-interface Casa {
+interface Casa { 
     id: number;
     nome: string;
     preco: number;
